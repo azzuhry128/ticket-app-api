@@ -1,9 +1,10 @@
 const express = require("express");
-const app = express();
 const mongoose = require("mongoose");
-const port = 3000;
 
 const ticket = require("./models/ticket.model");
+
+const port = 3000;
+const app = express();
 
 mongoose.set("strictQuery", true);
 
@@ -18,6 +19,7 @@ mongoose
   )
   .catch((err) => console.log(err));
 
+app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
