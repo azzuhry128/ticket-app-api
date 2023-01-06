@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const ticket = require("../models/ticket.model");
 
-router.get("https://ticket-app-api.vercel.app/", (req, res) => {
+router.get("/", (req, res) => {
   res.send("im main route, please dont send request to me, wont reply anyway");
 });
 

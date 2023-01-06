@@ -5,6 +5,8 @@ const port = 3000;
 
 const ticketRouter = require("./routes/ticket.route");
 
+mongoose.set("strictQuery", true);
+
 const dbURI =
   "mongodb+srv://azure128:marklima@cluster0.ss2tnqf.mongodb.net/?retryWrites=true&w=majority";
 mongoose
