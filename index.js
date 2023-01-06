@@ -1,7 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
 
-const ticket = require("./models/ticket.model");
+const train = require("./models/train.model");
+const plane = require("./models/plane.ticket");
+const ship = require("./models/ship.ticket");
 
 const port = 3000;
 const app = express();
@@ -22,10 +24,48 @@ app.get("/ticket", (req, res) => {
   );
 });
 
-app.post("/ticket", (req, res) => {
+app.post("/train", (req, res) => {
   const { name, from, to, kids, adults, type, departure, phone } = req.body;
 
-  const ticketData = new ticket({
+  const ticketData = new train({
+    name: name,
+    from: from,
+    to: to,
+    kids: kids,
+    adults: adults,
+    type: type,
+    departure: departure,
+    phone: phone,
+  });
+
+  ticketData.save();
+
+  return res.send({ status: 200, data: req.body });
+});
+
+app.post("/plane", (req, res) => {
+  const { name, from, to, kids, adults, type, departure, phone } = req.body;
+
+  const ticketData = new plane({
+    name: name,
+    from: from,
+    to: to,
+    kids: kids,
+    adults: adults,
+    type: type,
+    departure: departure,
+    phone: phone,
+  });
+
+  ticketData.save();
+
+  return res.send({ status: 200, data: req.body });
+});
+
+app.post("/ship", (req, res) => {
+  const { name, from, to, kids, adults, type, departure, phone } = req.body;
+
+  const ticketData = new ship({
     name: name,
     from: from,
     to: to,
