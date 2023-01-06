@@ -7,8 +7,8 @@ const ticketSchema = new mongoose.Schema({
   kids: Number,
   adults: Number,
   type: String,
-  departure: Date,
-  phone: Number,
+  departure: String,
+  phone: String,
 });
 
 const ticketModel = mongoose.model("Tickets", ticketSchema);
