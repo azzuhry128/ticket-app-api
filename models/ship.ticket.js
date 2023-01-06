@@ -11,6 +11,6 @@ const shipTicketSchema = new mongoose.Schema({
   phone: String,
 });
 
-const shipTicketModel = mongoose.model("Ships", shipTicketSchema);
+const ShipTicketModel = mongoose.model("Ships", shipTicketSchema);
 
-module.exports = shipTicketModel;
+module.exports = ShipTicketModel;

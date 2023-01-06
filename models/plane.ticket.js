@@ -11,6 +11,6 @@ const planeTicketSchema = new mongoose.Schema({
   phone: String,
 });
 
-const planeTicketModel = mongoose.model("Planes", planeTicketSchema);
+const PlaneTicketModel = mongoose.model("Planes", planeTicketSchema);
 
-module.exports = planeTicketModel;
+module.exports = PlaneTicketModel;

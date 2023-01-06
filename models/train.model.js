@@ -11,6 +11,6 @@ const trainTicketSchema = new mongoose.Schema({
   phone: String,
 });
 
-const trainTicketModel = mongoose.model("Trains", trainTicketSchema);
+const TrainTicketModel = mongoose.model("Trains", trainTicketSchema);
 
-module.exports = trainTicketModel;
+module.exports = TrainTicketModel;
