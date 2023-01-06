@@ -49,5 +49,5 @@ app.post("/ticket", (req, res) => {
 
   ticketData.save();
 
-  return res.send({ status: true, data: req.body });
+  return res.send({ status: 200, data: req.body });
 });
