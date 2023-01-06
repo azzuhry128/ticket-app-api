@@ -8,17 +8,6 @@ const app = express();
 
 mongoose.set("strictQuery", true);
 
-const dbURI =
-  "mongodb+srv://azure128:marklima@cluster0.ss2tnqf.mongodb.net/?retryWrites=true&w=majority";
-mongoose
-  .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then((result) =>
-    app.listen(port, () =>
-      console.log(`listening to port ${port}, connected to db`)
-    )
-  )
-  .catch((err) => console.log(err));
-
 app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -51,3 +40,14 @@ app.post("/ticket", (req, res) => {
 
   return res.send({ status: 200, data: req.body });
 });
+
+const dbURI =
+  "mongodb+srv://azure128:marklima@cluster0.ss2tnqf.mongodb.net/?retryWrites=true&w=majority";
+mongoose
+  .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then((result) =>
+    app.listen(port, () =>
+      console.log(`listening to port ${port}, connected to db`)
+    )
+  )
+  .catch((err) => console.log(err));
