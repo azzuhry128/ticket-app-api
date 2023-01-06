@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const port = 3000;
 
-const ticketRouter = require("./routes/ticket.route");
+const ticket = require("./models/ticket.model");
 
 mongoose.set("strictQuery", true);
 
@@ -20,4 +20,32 @@ mongoose
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use("/", ticketRouter);
+
+app.get("/", (req, res) => {
+  res.send("im main route, please dont send request to me, wont reply anyway");
+});
+
+app.get("/ticket", (req, res) => {
+  res.send(
+    "welcome to ticket route, pls send POST request to input any ticket data"
+  );
+});
+
+app.post("/ticket", (req, res) => {
+  const { name, from, to, kids, adults, type, departure, phone } = req.body;
+
+  const ticketData = new ticket({
+    name: name,
+    from: from,
+    to: to,
+    kids: kids,
+    adults: adults,
+    type: type,
+    departure: departure,
+    phone: phone,
+  });
+
+  ticketData.save();
+
+  return res.send({ status: 200, data: req.body });
+});
