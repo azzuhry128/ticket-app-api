@@ -1,14 +1,28 @@
 const mongoose = require("mongoose");
 
 const planeTicketSchema = new mongoose.Schema({
-  name: String,
-  from: String,
-  to: String,
-  kids: Number,
-  adults: Number,
-  type: String,
-  departure: String,
-  phone: String,
+  name: {
+    type: String,
+  },
+  from: {
+    type: String,
+  },
+  to: {
+    type: String,
+  },
+  kids: {
+    type: Number,
+  },
+  adults: {
+    type: Number,
+  },
+  type: {
+    type: String,
+  },
+  departure: {
+    type: String,
+  },
+  phone: { type: String },
 });
 
 const PlaneTicketModel = mongoose.model("Planes", planeTicketSchema);

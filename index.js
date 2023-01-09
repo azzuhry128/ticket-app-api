@@ -8,6 +8,11 @@ const ship = require("./models/ship.ticket");
 const port = 3000;
 const app = express();
 
+// const username = "azure128";
+// const password = "marklima";
+// const cluster = "cluster0";
+// const database = "tickets";
+
 mongoose.set("strictQuery", true);
 
 app.use(express.static("public"));
@@ -18,10 +23,19 @@ app.get("/", (req, res) => {
   res.send("im main route, please dont send request to me, wont reply anyway");
 });
 
-app.get("/ticket", (req, res) => {
-  res.send(
-    "welcome to ticket route, pls send POST request to input any ticket data"
-  );
+app.get("/train", async (req, res) => {
+  const trainTickets = await train.find({});
+  res.send(trainTickets);
+});
+
+app.get("/plane", async (req, res) => {
+  const planeTickets = await plane.find({});
+  res.send(planeTickets);
+});
+
+app.get("/ship", async (req, res) => {
+  const shipTickets = await ship.find({});
+  res.send(shipTickets);
 });
 
 app.post("/train", (req, res) => {
@@ -82,7 +96,7 @@ app.post("/ship", (req, res) => {
 });
 
 const dbURI =
-  "mongodb+srv://azure128:marklima@cluster0.ss2tnqf.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://azure128:marklima@cluster0.ss2tnqf.mongodb.net/tickets?retryWrites=true&w=majority";
 mongoose
   .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then((result) =>
