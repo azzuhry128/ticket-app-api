@@ -1,10 +1,6 @@
 const express = require("express");
 const router = express.Router();
 
-router.get("/registration", (req, res) => {
-  res.send("welcome to registration page");
-});
-
 router.post("/registration", (req, res) => {
   const input = req.body;
 

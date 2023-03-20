@@ -1,1 +1,6 @@
-const registration = require('')
+const registrationPage = (req, res) => {
+    res.render("register")
+}
+
+module.exports = registrationPage
+

@@ -2,9 +2,9 @@ const { Sequelize, DataTypes } = require("sequelize");
 const mysqlDatabase = require("../database/mysql.database");
 
 const sequelize = new Sequelize(
-  mysqlDatabase.database,
-  mysqlDatabase.user,
-  mysqlDatabase.password,
+    mysqlDatabase.database,
+    mysqlDatabase.user,
+    mysqlDatabase.password,
   {
     host: mysqlDatabase.host,
     dialect: "mysql",
@@ -66,6 +66,7 @@ const NewUser = sequelize.define("users", {
 // };
 
 dbConnectionTest();
+
 // createTable();
 
 // module.exports(dbConnectionTest);
